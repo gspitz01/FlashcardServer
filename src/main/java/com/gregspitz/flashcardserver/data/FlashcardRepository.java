@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * A simple Flashcard data source
- * TODO: create test class and fill this in
  */
 public class FlashcardRepository implements FlashcardDataSource {
 
