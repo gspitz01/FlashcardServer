@@ -1,4 +1,4 @@
-package com.gregspitz.flashcardserver;
+package com.gregspitz.flashcardserver.httphandlers;
 
 import com.gregspitz.flashcardserver.data.FlashcardRepository;
 import com.gregspitz.flashcardserver.model.Flashcard;

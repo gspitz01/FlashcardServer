@@ -9,4 +9,8 @@ public class FlashcardRepository {
     public List<Flashcard> getFlashcards() {
         return null;
     }
+
+    public Flashcard getFlashcardById(String id) {
+        return null;
+    }
 }

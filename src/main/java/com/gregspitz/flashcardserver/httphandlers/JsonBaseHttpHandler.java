@@ -1,4 +1,4 @@
-package com.gregspitz.flashcardserver;
+package com.gregspitz.flashcardserver.httphandlers;
 
 import com.google.gson.Gson;
 import com.sun.net.httpserver.Headers;
