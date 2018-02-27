@@ -14,6 +14,9 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+/**
+ * Tests for the implementation of {@link FlashcardsHandler}
+ */
 public class FlashcardsHandlerTest extends BaseFlashcardHandlerTest {
 
     private FlashcardsHandler flashcardsHandler;

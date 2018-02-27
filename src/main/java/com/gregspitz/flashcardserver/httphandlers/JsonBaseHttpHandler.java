@@ -10,6 +10,10 @@ import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * A base for all HTTP Handlers which will return respond with JSON
+ * @param <T> the type of response
+ */
 public abstract class JsonBaseHttpHandler<T> implements HttpHandler {
     private static final Charset CHARSET = StandardCharsets.UTF_8;
     private static final Gson gson = new Gson();

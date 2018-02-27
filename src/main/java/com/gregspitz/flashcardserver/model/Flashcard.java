@@ -2,6 +2,9 @@ package com.gregspitz.flashcardserver.model;
 
 import java.util.UUID;
 
+/**
+ * Represents a single flashcard
+ */
 public class Flashcard {
     private String id;
     private String front;

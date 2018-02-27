@@ -6,6 +6,9 @@ import com.sun.net.httpserver.HttpExchange;
 
 import java.util.List;
 
+/**
+ * A handler for all flashcards at the path /flashcards
+ */
 public class FlashcardsHandler extends JsonBaseHttpHandler<List<Flashcard>> {
 
     private FlashcardRepository repository;

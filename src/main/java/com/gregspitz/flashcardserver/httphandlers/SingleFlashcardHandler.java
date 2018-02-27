@@ -1,12 +1,14 @@
 package com.gregspitz.flashcardserver.httphandlers;
 
 import com.gregspitz.flashcardserver.data.FlashcardRepository;
-import com.gregspitz.flashcardserver.httphandlers.JsonBaseHttpHandler;
 import com.gregspitz.flashcardserver.model.Flashcard;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.net.URI;
 
+/**
+ * A handler for individual flashcards at the path /flashcard/${id}
+ */
 public class SingleFlashcardHandler extends JsonBaseHttpHandler<Flashcard> {
 
     private FlashcardRepository repository;

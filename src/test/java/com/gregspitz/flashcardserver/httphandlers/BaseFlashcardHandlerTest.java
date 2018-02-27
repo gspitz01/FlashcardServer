@@ -14,6 +14,9 @@ import java.net.InetSocketAddress;
 
 import static org.mockito.Mockito.when;
 
+/**
+ * A base class for all flashcard HTTP Handler tests
+ */
 public class BaseFlashcardHandlerTest {
     static final Flashcard FLASHCARD = new Flashcard("0", "Front", "Back");
 

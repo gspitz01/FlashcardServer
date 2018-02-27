@@ -12,6 +12,9 @@ import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+/**
+ * Tests for the implementation of {@link SingleFlashcardHandler}
+ */
 public class SingleFlashcardHandlerTest extends BaseFlashcardHandlerTest {
 
     private SingleFlashcardHandler singleFlashcardHandler;
