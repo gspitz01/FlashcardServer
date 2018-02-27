@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * An interface for Flashcard data sources
+ * Flashcards are immutable so they cannot be updated
  */
 public interface FlashcardDataSource {
 
@@ -13,9 +14,11 @@ public interface FlashcardDataSource {
 
     Flashcard getFlashcardById(String id);
 
-    void updateFlashcard(Flashcard flashcard);
-
     void deleteFlashcard(String id);
 
+    void deleteFlashcard(Flashcard flashcard);
+
     void addFlashcard(Flashcard flashcard);
+
+    void addFlashcards(List<Flashcard> flashcards);
 }
