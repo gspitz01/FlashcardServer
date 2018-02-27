@@ -20,30 +20,30 @@ public class SingleFlashcardHandlerTest extends BaseFlashcardHandlerTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         singleFlashcardHandler = new SingleFlashcardHandler(mockRepository);
+        when(mockRepository.getFlashcardById(FLASHCARD.getId())).thenReturn(FLASHCARD);
+        setupBasicGetRequest();
     }
 
     @Test
     public void requestSingleFlashcard_writesThatFlashcardToResponse() throws Exception {
-        when(mockRepository.getFlashcardById(FLASHCARD.getId())).thenReturn(FLASHCARD);
-        setupBasicGetRequest();
         when(mockHttpExchange.getRequestURI()).thenReturn(URI.create("/flashcard/0"));
         singleFlashcardHandler.handle(mockHttpExchange);
-        verify(mockResponseBody).write(responseCaptor.capture());
-        String responseString = new String(responseCaptor.getValue());
-        Flashcard returnedFlashcard = gson.fromJson(responseString, Flashcard.class);
+        Flashcard returnedFlashcard = captureResponse();
         assertEquals(FLASHCARD, returnedFlashcard);
     }
 
     @Test
     public void requestForNonExistentFlashcard_writesNullToResponse() throws Exception {
-        when(mockRepository.getFlashcardById(FLASHCARD.getId())).thenReturn(FLASHCARD);
-        setupBasicGetRequest();
         when(mockHttpExchange.getRequestURI()).thenReturn(URI.create("/flashcard/1"));
         singleFlashcardHandler.handle(mockHttpExchange);
+        Flashcard returnedFlashcard = captureResponse();
+        assertNull(returnedFlashcard);
+    }
+
+    private Flashcard captureResponse() throws Exception {
         verify(mockResponseBody).write(responseCaptor.capture());
         String responseString = new String(responseCaptor.getValue());
-        Flashcard returnedFlashcard = gson.fromJson(responseString, Flashcard.class);
-        assertNull(returnedFlashcard);
+        return gson.fromJson(responseString, Flashcard.class);
     }
 
 }
