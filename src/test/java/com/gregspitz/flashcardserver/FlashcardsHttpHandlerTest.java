@@ -23,7 +23,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class FlashcardHttpHandlerTest {
+public class FlashcardsHttpHandlerTest {
 
     private static final Flashcard FLASHCARD = new Flashcard("0", "Front", "Back");
 
@@ -42,12 +42,12 @@ public class FlashcardHttpHandlerTest {
     @Captor
     private ArgumentCaptor<byte[]> responseCaptor = ArgumentCaptor.forClass(byte[].class);
 
-    private FlashcardHttpHandler flashcardHttpHandler;
+    private FlashcardsHandler flashcardsHandler;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        flashcardHttpHandler = new FlashcardHttpHandler(mockRepository);
+        flashcardsHandler = new FlashcardsHandler(mockRepository);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class FlashcardHttpHandlerTest {
         when(mockHttpExchange.getRequestMethod()).thenReturn("GET");
         when(mockHttpExchange.getRemoteAddress()).thenReturn(new InetSocketAddress("localhot", 8080));
 
-        flashcardHttpHandler.handle(mockHttpExchange);
+        flashcardsHandler.handle(mockHttpExchange);
         verify(mockResponseBody).write(responseCaptor.capture());
         String responseString = new String(responseCaptor.getValue());
         Gson gson = new Gson();

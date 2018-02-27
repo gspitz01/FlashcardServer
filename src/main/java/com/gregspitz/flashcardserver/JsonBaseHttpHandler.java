@@ -21,11 +21,11 @@ public abstract class JsonBaseHttpHandler<T> implements HttpHandler {
     public void handle(HttpExchange httpExchange) throws IOException {
         mHttpExchange = httpExchange;
         logReceivedRequest();
-        mJsonResponse = gson.toJson(createResponse());
+        mJsonResponse = gson.toJson(createResponse(httpExchange));
         sendResponse();
     }
 
-    protected abstract T createResponse();
+    protected abstract T createResponse(HttpExchange httpExchange);
 
     private void logReceivedRequest() {
         System.out.println("Request received: " + mHttpExchange.getRequestMethod() +
