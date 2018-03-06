@@ -1,9 +1,11 @@
 package com.gregspitz.flashcardserver.data;
 
+import com.gregspitz.flashcardserver.model.DataStructure;
 import com.gregspitz.flashcardserver.model.Flashcard;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
@@ -30,5 +32,10 @@ public class DataStructuresToFlashcardTransformerTest {
         List<Flashcard> flashcards = DataStructuresToFlashcardTransformer.transformFromFile(jsonFile);
         assertEquals(54, flashcards.size());
         assertEquals("Abstract factory", flashcards.get(0).getFront());
+    }
+
+    @Test(expected = IOException.class)
+    public void tryingToOpenFileNotThere_throwsIOException() throws IOException {
+        DataStructuresToFlashcardTransformer.transformFromFile("Not a real file");
     }
 }
