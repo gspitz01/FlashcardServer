@@ -15,7 +15,14 @@ public class FlashcardTest {
     }
 
     @Test
-    public void compareDifferingFlashcards_notEqual() {
+    public void compareDifferingFlashcardFronts_notEqual() {
+        Flashcard flashcard1 = new Flashcard("0", "Front", "Back");
+        Flashcard flashcard2 = new Flashcard("0", "Fronts", "Back");
+        assertNotEquals(flashcard1, flashcard2);
+    }
+
+    @Test
+    public void compareDifferingFlashcardBacks_notEqual() {
         Flashcard flashcard1 = new Flashcard("0", "Front", "Back");
         Flashcard flashcard2 = new Flashcard("0", "Front", "Backa");
         assertNotEquals(flashcard1, flashcard2);
@@ -30,15 +37,22 @@ public class FlashcardTest {
 
     @Test
     public void compareNonFlashcardToFlashcard_notEqual() {
-        String flashcard = "This is not actually a flashcard";
-        Flashcard flashcard1 = new Flashcard("0", "Front", "Back");
-        assertNotEquals(flashcard, flashcard1);
+        Flashcard flashcard = new Flashcard("0", "Front", "Back");
+        String notAFlashcard = "This is not actually a flashcard";
+        assertNotEquals(flashcard, notAFlashcard);
     }
 
     @Test
     public void flashcardsCreatedWithoutId_notEqual() {
         Flashcard flashcard1 = new Flashcard("Front", "Back");
         Flashcard flashcard2 = new Flashcard("Front", "Back");
+        assertNotEquals(flashcard1, flashcard2);
+    }
+
+    @Test
+    public void compareFlashcardToNullObject_notEqual() {
+        Flashcard flashcard1 = new Flashcard("Front", "Back");
+        Flashcard flashcard2 = null;
         assertNotEquals(flashcard1, flashcard2);
     }
 
