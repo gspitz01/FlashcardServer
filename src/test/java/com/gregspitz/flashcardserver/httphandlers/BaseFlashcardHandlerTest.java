@@ -40,7 +40,6 @@ public class BaseFlashcardHandlerTest {
     void setupBasicGetRequest() {
         when(mockHttpExchange.getResponseHeaders()).thenReturn(mockResponseHeaders);
         when(mockHttpExchange.getResponseBody()).thenReturn(mockResponseBody);
-        when(mockHttpExchange.getRequestMethod()).thenReturn("GET");
         when(mockHttpExchange.getRemoteAddress()).thenReturn(new InetSocketAddress("localhot", 8080));
     }
 }
