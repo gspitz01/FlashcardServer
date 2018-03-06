@@ -57,6 +57,15 @@ public class SingleFlashcardHandlerTest extends BaseFlashcardHandlerTest {
     }
 
     @Test
+    public void getRequestWithNoId_returnsNull() throws Exception {
+        when(mockHttpExchange.getRequestURI()).thenReturn(URI.create("/flashcard"));
+        when(mockHttpExchange.getRequestMethod()).thenReturn("GET");
+        singleFlashcardHandler.handle(mockHttpExchange);
+        Flashcard returnedFlashcard = captureResponse();
+        assertNull(returnedFlashcard);
+    }
+
+    @Test
     public void postFlashcard_savesFlashcard() throws Exception {
         when(mockHttpExchange.getRequestURI()).thenReturn(URI.create("/flashcard/"));
         when(mockHttpExchange.getRequestMethod()).thenReturn("POST");
