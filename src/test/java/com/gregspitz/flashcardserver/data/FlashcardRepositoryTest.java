@@ -58,4 +58,11 @@ public class FlashcardRepositoryTest {
         repository.deleteFlashcard(FLASHCARD);
         assertEquals(1, repository.getFlashcards().size());
     }
+
+    @Test
+    public void wontDeleteNonExistentFlashcard() {
+        repository.addFlashcards(Arrays.asList(FLASHCARD, SECOND_FLASHCARD));
+        repository.deleteFlashcard(new Flashcard("Front", "Back"));
+        assertEquals(2, repository.getFlashcards().size());
+    }
 }
