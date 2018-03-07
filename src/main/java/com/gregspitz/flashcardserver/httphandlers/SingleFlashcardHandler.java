@@ -36,7 +36,7 @@ public class SingleFlashcardHandler extends JsonBaseHttpHandler<Flashcard> {
         InputStream requestBody = httpExchange.getRequestBody();
         try {
             String requestJson = IOUtils.toString(requestBody, getCharset());
-            Flashcard flashcard = gson.fromJson(requestJson, Flashcard.class);
+            Flashcard flashcard = getGson().fromJson(requestJson, Flashcard.class);
             repository.addFlashcard(flashcard);
             return flashcard;
         } catch (IOException ex) {

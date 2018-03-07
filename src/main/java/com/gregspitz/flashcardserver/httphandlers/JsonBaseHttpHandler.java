@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
  */
 public abstract class JsonBaseHttpHandler<T> implements HttpHandler {
     private static final Charset CHARSET = StandardCharsets.UTF_8;
-    protected static final Gson gson = new Gson();
+    private static final Gson gson = new Gson();
 
     private String mJsonResponse;
     private HttpExchange mHttpExchange;
@@ -49,4 +49,6 @@ public abstract class JsonBaseHttpHandler<T> implements HttpHandler {
     public static Charset getCharset() {
         return CHARSET;
     }
+
+    public static Gson getGson() { return gson; }
 }
