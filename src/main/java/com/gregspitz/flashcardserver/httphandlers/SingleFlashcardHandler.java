@@ -35,7 +35,7 @@ public class SingleFlashcardHandler extends JsonBaseHttpHandler<Flashcard> {
     private Flashcard handlePostRequest(HttpExchange httpExchange) {
         InputStream requestBody = httpExchange.getRequestBody();
         try {
-            String requestJson = IOUtils.toString(requestBody, StandardCharsets.UTF_8);
+            String requestJson = IOUtils.toString(requestBody, getCharset());
             Flashcard flashcard = gson.fromJson(requestJson, Flashcard.class);
             repository.addFlashcard(flashcard);
             return flashcard;
