@@ -12,6 +12,7 @@
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.2" level="project" />
     <orderEntry type="library" name="Gradle: commons-io:commons-io:2.5" level="project" />
     <orderEntry type="library" name="Gradle: commons-httpclient:commons-httpclient:3.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.derby:derby:10.14.1.0" level="project" />
     <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.0.4" level="project" />
     <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.2" level="project" />
   </component>
